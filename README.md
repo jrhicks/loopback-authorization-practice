@@ -1,4 +1,4 @@
-# Authtest
+# Loopback Authorization Practice
 
 Practicing authorization stuff in loopback.
 
@@ -10,7 +10,7 @@ User <-> CompanyUser <-> Company <-> Project <-> Sieras
 
  [ ] registerRole $WithProjectsCompany
 
- [ ] Use a posthook to filter Sieras to status='published'
+ [X] Use a posthook to filter Sieras to status='published'
 
  [ ] Only limit sieras to sttus='published' based on user's role
 
