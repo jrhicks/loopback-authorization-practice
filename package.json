@@ -4,7 +4,8 @@
   "main": "server/server.js",
   "scripts": {
     "start": "node .",
-    "test": "mocha test/*test.js"
+    "test": "mocha test/*test.js",
+    "console": "./node_modules/loopback-console/bin/loopback-console"
   },
   "dependencies": {
     "compression": "^1.0.3",
@@ -13,6 +14,7 @@
     "loopback": "^2.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^2.1.0",
+    "loopback-console": "^0.2.2",
     "loopback-datasource-juggler": "^2.39.0",
     "serve-favicon": "^2.0.1"
   },

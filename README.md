@@ -8,11 +8,11 @@ User <-> CompanyUser <-> Company <-> Project <-> Sieras
 
  [X] Resrict SIERAs to authenticated users
 
- [X] Use a operationhook to filter Sieras to status='published'
+ [X] Use an operationhook to filter Sieras to status='published'
 
  [X] Add tests to demonstrate that Sieras are being limited to published
 
- [ ] Setup console to easily experiment
+ [X] Setup console to easily experiment
 
  [ ] Refine operationhook to only filter Sieras based on user role
 
