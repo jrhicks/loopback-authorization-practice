@@ -10,7 +10,7 @@ User <-> CompanyUser <-> Company <-> Project <-> Sieras
 
  [ ] registerRole $WithProjectsCompany
 
- [X] Use a posthook to filter Sieras to status='published'
+ [X] Use a operationhook to filter Sieras to status='published'
 
  [ ] Only limit sieras to sttus='published' based on user's role
 
