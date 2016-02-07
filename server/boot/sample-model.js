@@ -6,10 +6,11 @@ module.exports = function(app) {
   var RoleMapping = app.models.RoleMapping;
 
   User.create([
-    {name: 'John', email: 'john@doe.com', password: 'opensesame'},
-    {name: 'Jane', email: 'jane@doe.com', password: 'opensesame'},
-    {name: 'Bob', email: 'bob@projects.com', password: 'opensesame'}
+    {username: 'john', email: 'john@doe.com', password: 'opensesame'},
+    {username: 'jane', email: 'jane@doe.com', password: 'opensesame'},
+    {username: 'bob', email: 'bob@projects.com', password: 'opensesame'}
   ], function(err, users) {
+    console.log("created users:", users)
     if (err) throw err;
     users[0].companies.create({"name":"IBM"}, function(err, company) {
       if (err) throw err;
