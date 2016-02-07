@@ -6,11 +6,9 @@ module.exports = function(app) {
   var RoleMapping = app.models.RoleMapping;
 
   User.create([
-    {username: 'john', email: 'john@doe.com', password: 'opensesame'},
-    {username: 'jane', email: 'jane@doe.com', password: 'opensesame'},
-    {username: 'bob', email: 'bob@projects.com', password: 'opensesame'}
+    {username: 'admin-john', email: 'john@doe.com', password: 'opensesame'},
+    {username: 'client-jane', email: 'jane@doe.com', password: 'opensesame'},
   ], function(err, users) {
-    console.log("created users:", users)
     if (err) throw err;
     users[0].companies.create({"name":"IBM"}, function(err, company) {
       if (err) throw err;
@@ -31,14 +29,12 @@ module.exports = function(app) {
       name: 'admin'
     }, function(err, role) {
       if (err) throw err;
-      console.log('Created role:', role);
       //make John an admin
       role.principals.create({
         principalType: RoleMapping.USER,
         principalId: users[0].id
       }, function(err, principal) {
         if (err) throw err;
-        console.log('Created principal:', principal);
       });
     });
 
@@ -46,14 +42,12 @@ module.exports = function(app) {
       name: 'client'
     }, function(err, role) {
       if (err) throw err;
-      console.log('Created role:', role);
       //make Jane an admin
       role.principals.create({
         principalType: RoleMapping.USER,
         principalId: users[1].id
       }, function(err, principal) {
         if (err) throw err;
-        console.log('Created principal:', principal);
       });
     });
 

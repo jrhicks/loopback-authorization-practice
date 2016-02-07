@@ -4,17 +4,21 @@ Practicing authorization stuff in loopback.
 
 User <-> CompanyUser <-> Company <-> Project <-> Sieras
 
- [ ] Setup Models & Relationships & populate with data
+ [X] Setup models, relationships, populate with data
 
- [ ] Enable /project/:id/sieras
-
- [ ] registerRole $WithProjectsCompany
+ [X] Resrict SIERAs to authenticated users
 
  [X] Use a operationhook to filter Sieras to status='published'
 
- [ ] Only limit sieras to sttus='published' based on user's role
+ [X] Add tests to demonstrate that Sieras are being limited to published
 
- [ ] Create an admin role that can see everything
+ [ ] Setup console to easily experiment
+
+ [ ] Refine operationhook to only filter Sieras based on user role
+
+ [ ] registerRole $WithProjectsCompany
+
+
 
 
 Role Resolver
@@ -43,3 +47,10 @@ MultiTenant
 * https://docs.strongloop.com/display/public/LB/Operation+hooks#Operationhooks-access
 
 * https://github.com/paulomcnally/loopback-example-multitenant
+
+Testing framework
+=================
+
+There seems to be a good example at https://github.com/jedwood/api-testing-with-node/blob/master/package.json
+
+* npm run test

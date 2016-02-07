@@ -20,7 +20,6 @@
       "through": "company_user"
     }
   },
-  "acls": [
-  ],
+  "acls": [],
   "methods": {}
 }
