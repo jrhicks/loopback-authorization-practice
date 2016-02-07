@@ -1,0 +1,25 @@
+{
+  "name": "user",
+  "plural": "users",
+  "base": "User",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "companies": {
+      "type": "hasMany",
+      "model": "company",
+      "foreignKey": "",
+      "through": "company_user"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

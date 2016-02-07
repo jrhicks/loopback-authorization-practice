@@ -1,0 +1,29 @@
+{
+  "name": "company",
+  "plural": "companies",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "project": {
+      "type": "belongsTo",
+      "model": "project",
+      "foreignKey": ""
+    },
+    "projects": {
+      "type": "hasMany",
+      "model": "project",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

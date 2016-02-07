@@ -1,0 +1,25 @@
+{
+  "name": "company_user",
+  "plural": "company_users",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "user": {
+      "type": "belongsTo",
+      "model": "user",
+      "foreignKey": ""
+    },
+    "company": {
+      "type": "belongsTo",
+      "model": "company",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

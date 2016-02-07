@@ -1,0 +1,25 @@
+{
+  "name": "project",
+  "plural": "projects",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "sieras": {
+      "type": "hasMany",
+      "model": "siera",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

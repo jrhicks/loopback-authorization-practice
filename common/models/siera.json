@@ -1,0 +1,29 @@
+{
+  "name": "siera",
+  "plural": "sieras",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "project": {
+      "type": "belongsTo",
+      "model": "project",
+      "foreignKey": ""
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
