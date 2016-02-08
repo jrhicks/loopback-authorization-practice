@@ -7,7 +7,7 @@ module.exports = function(Siera) {
     [
       {
         role: 'client',
-        where: {status: 'published'}
+        where: {status: 'published'},
       }
     ]
   ));

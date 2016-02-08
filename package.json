@@ -5,7 +5,8 @@
   "scripts": {
     "start": "node .",
     "test": "mocha test/*test.js",
-    "console": "./node_modules/loopback-console/bin/loopback-console"
+    "console": "./node_modules/loopback-console/bin/loopback-console",
+    "debug": "node debug ."
   },
   "dependencies": {
     "compression": "^1.0.3",

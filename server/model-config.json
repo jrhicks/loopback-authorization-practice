@@ -51,6 +51,6 @@
   },
   "company_user": {
     "dataSource": "db",
-    "public": true
+    "public": false
   }
 }

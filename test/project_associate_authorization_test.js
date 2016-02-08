@@ -12,7 +12,7 @@ function json(verb, url) {
       .expect('Content-Type', /json/);
   }
 
-describe('SIERA Authorization', function() {
+describe('Project Associate Authorization', function() {
   before(function(done) {
     require('./start-server');
     done();
@@ -24,8 +24,8 @@ describe('SIERA Authorization', function() {
   //  done();
   //});
 
-  it('should not allow access to sieras without access token', function(done){
-    json('get', '/api/sieras')
+  it('should not allow access to project without access token', function(done){
+    json('get', '/api/projects/1')
       .expect(401, function(err, res) {
         if (err) throw decoratedError(err, res);
         done();
@@ -33,7 +33,7 @@ describe('SIERA Authorization', function() {
   });
 
   var accessToken;
-  it('client should login and ONLY get published sieras', function(done) {
+  it('user who IS NOT in the projects company should not have read access', function(done) {
     json('post', '/api/users/login')
       .send({
         username: 'client-jane',
@@ -43,20 +43,16 @@ describe('SIERA Authorization', function() {
         assert(typeof res.body === 'object');
         var accessToken = res.body.id;
         assert(accessToken, 'must have an access token');
-        json('get', '/api/sieras?access_token=' + accessToken)
-          .expect(200)
+        json('get', '/api/projects/'+1+'?access_token=' + accessToken)
+          .expect(401)
           .end(function(err, res) {
             if (err) throw decoratedError(err, res);
-            assert(res.body.length > 0, "Some SIERAS should have been returned");
-            for (var i = 0; i < res.body.length; i++) {
-                assert.equal(res.body[i].status, "published")
-            }
             done();
           });
       });
   });
 
-  it('admin should login and get BOTH published and unpublished sieras', function(done) {
+  it('user who IS in the projects company should have read access', function(done) {
     json('post', '/api/users/login')
       .send({
         username: 'admin-john',
@@ -66,18 +62,10 @@ describe('SIERA Authorization', function() {
         assert(typeof res.body === 'object');
         var accessToken = res.body.id;
         assert(accessToken, 'must have an access token');
-        json('get', '/api/sieras?access_token=' + accessToken)
+        json('get', '/api/projects/'+1+'?access_token=' + accessToken)
           .expect(200)
           .end(function(err, res) {
             if (err) throw decoratedError(err, res);
-            var hasUnpublished = false;
-            assert(res.body.length > 0, "Some SIERAS should have been returned");
-            for (var i = 0; i < res.body.length; i++) {
-                if (res.body[i].status !== "published") {
-                  hasUnpublished = true;
-                }
-            }
-            assert(hasUnpublished, "Unpublished values should be returned for Admins");
             done();
           });
       });

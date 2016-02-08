@@ -16,6 +16,8 @@ User <-> CompanyUser <-> Company <-> Project <-> Sieras
 
  [X] Refine operationhook to only filter Sieras based on user role
 
+ [X] User debugging like ruby pry
+
  [ ] registerRole $WithProjectsCompany
 
 
@@ -23,6 +25,17 @@ Querying
 ========
 
 DEBUG=loopback:connector:* node .
+
+DEBUG
+==============
+
+* insert command "debugger" into your code
+
+* npm run debug
+
+* from debugger console type "cont;" to continue execution to next breakpoint
+
+* once breakpoint is hit type "repl;" to start executing commands in context
 
 Role Resolver
 ==============
