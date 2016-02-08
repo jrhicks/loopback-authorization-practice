@@ -18,7 +18,11 @@ User <-> CompanyUser <-> Company <-> Project <-> Sieras
 
  [X] User debugging like ruby pry
 
- [ ] registerRole $WithProjectsCompany
+ [X] registerRole $projectAssociate
+
+ [X] lockdown sieras to only be visible as project nested route
+
+ [X] enable sieras from project nested route if user is a project associate.
 
 
 Querying

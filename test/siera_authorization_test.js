@@ -24,13 +24,22 @@ describe('SIERA Authorization', function() {
   //  done();
   //});
 
-  it('should not allow access to sieras without access token', function(done){
+  it('sieras should not be accessible outside of a project', function(done){
     json('get', '/api/sieras')
+      .expect(404, function(err, res) {
+        if (err) throw decoratedError(err, res);
+        done();
+      });
+  });
+
+  it('should not allow access to sieras without access token', function(done){
+    json('get', '/api/projects/1/sieras')
       .expect(401, function(err, res) {
         if (err) throw decoratedError(err, res);
         done();
       });
   });
+
 
   var accessToken;
   it('client should login and ONLY get published sieras', function(done) {
@@ -43,7 +52,7 @@ describe('SIERA Authorization', function() {
         assert(typeof res.body === 'object');
         var accessToken = res.body.id;
         assert(accessToken, 'must have an access token');
-        json('get', '/api/sieras?access_token=' + accessToken)
+        json('get', '/api/projects/1/sieras?access_token=' + accessToken)
           .expect(200)
           .end(function(err, res) {
             if (err) throw decoratedError(err, res);
@@ -66,7 +75,7 @@ describe('SIERA Authorization', function() {
         assert(typeof res.body === 'object');
         var accessToken = res.body.id;
         assert(accessToken, 'must have an access token');
-        json('get', '/api/sieras?access_token=' + accessToken)
+        json('get', '/api/projects/1/sieras?access_token=' + accessToken)
           .expect(200)
           .end(function(err, res) {
             if (err) throw decoratedError(err, res);

@@ -36,7 +36,7 @@ describe('Project Associate Authorization', function() {
   it('user who IS NOT in the projects company should not have read access', function(done) {
     json('post', '/api/users/login')
       .send({
-        username: 'client-jane',
+        username: 'stranger-bill',
         password: 'opensesame'
       })
       .expect(200, function(err, res) {

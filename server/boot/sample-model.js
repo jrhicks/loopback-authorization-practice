@@ -1,5 +1,6 @@
 module.exports = function(app) {
   var User = app.models.user;
+  var CompanyUser = app.models.company_user;
   var Project = app.models.Project;
   var Siera = app.models.Siera;
   var Role = app.models.Role;
@@ -8,10 +9,14 @@ module.exports = function(app) {
   User.create([
     {username: 'admin-john', email: 'john@doe.com', password: 'opensesame'},
     {username: 'client-jane', email: 'jane@doe.com', password: 'opensesame'},
+    {username: 'stranger-bill', email: 'bill@doe.com', password: 'opensesame'}
   ], function(err, users) {
     if (err) throw err;
     users[0].companies.create({"name":"IBM"}, function(err, company) {
       if (err) throw err;
+      // Add Jane to the company also
+      CompanyUser.create({companyId: company.id,
+                          userId: users[1].id});
       company.projects.create({
         name: 'Project 1',
         }, function(err, project) {
