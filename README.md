@@ -14,12 +14,15 @@ User <-> CompanyUser <-> Company <-> Project <-> Sieras
 
  [X] Setup console to easily experiment
 
- [ ] Refine operationhook to only filter Sieras based on user role
+ [X] Refine operationhook to only filter Sieras based on user role
 
  [ ] registerRole $WithProjectsCompany
 
 
+Querying
+========
 
+DEBUG=loopback:connector:* node .
 
 Role Resolver
 ==============
