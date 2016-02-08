@@ -24,6 +24,7 @@ User <-> CompanyUser <-> Company <-> Project <-> Sieras
 
  [X] enable sieras from project nested route if user is a project associate.
 
+ [ ] sort/filter by a field of a related object - order: {"orders": "orderNumber desc"}
 
 Querying
 ========
@@ -67,6 +68,7 @@ MultiTenant
 * https://docs.strongloop.com/display/public/LB/Operation+hooks#Operationhooks-access
 
 * https://github.com/paulomcnally/loopback-example-multitenant
+
 
 Testing framework
 =================
